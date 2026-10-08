@@ -1,0 +1,7 @@
+pyTelegramBotAPI
+psutil
+requests
+flask
+pycryptodome
+msgpack
+argon2-cffi
