@@ -5,3 +5,5 @@ flask
 pycryptodome
 msgpack
 argon2-cffi
+aiogram
+aiohttp
