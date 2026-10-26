@@ -7,3 +7,4 @@ msgpack
 argon2-cffi
 aiogram
 aiohttp
+beautifulsoup4
