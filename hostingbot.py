@@ -2221,6 +2221,20 @@ if __name__ == '__main__':
                 f"🔧 Base Dir: {BASE_DIR}\n📁 Upload Dir: {UPLOAD_BOTS_DIR}\n" +
                 f"📊 Data Dir: {IROTECH_DIR}\n🔑 Owner ID: {OWNER_ID}\n🛡️ Admins: {admin_ids}\n" + "="*40)
     keep_alive()
+
+    # 👇👇 409 fix — webhook clear before polling
+    try:
+        r = requests.get(
+            f"https://api.telegram.org/bot{TOKEN}/deleteWebhook",
+            params={"drop_pending_updates": "true"},
+            timeout=10,
+        )
+        logger.info(f"deleteWebhook: {r.json()}")
+    except Exception as e:
+        logger.warning(f"deleteWebhook failed: {e}")
+    time.sleep(2)
+    # 👆👆
+
     logger.info("🚀 Starting polling...")
     while True:
         try:
